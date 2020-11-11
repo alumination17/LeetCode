@@ -1,21 +1,25 @@
-class Solution:
-    def getMaximumGenerated(self, n: int) -> int:
+# class Solution:
+def getMaximumGenerated(n):
         
-                
-        nums = [0]*n
+    nums = [0,1]
 
-        user_input = input()
-        n = int(user_input[4])
-
-        nums[0] = 0
-        nums[1] = 1 
+    if n < 2:
+        return max(nums[:n+1])
         
-        for i in range(1,n):
-            
-            if (i * 2) >= 2 and (i * 2) <= n:
-                nums[2 * i] = nums[i] 
-            
-            elif (i * 2 + 1) >= 2 and (i * 2 + 1) <= n:
-                nums[2 * i + 1] = nums[i] + nums[i + 1] 
+    for i in range(2,n+1):
 
-        return max(nums)
+        if i % 2 == 0:
+            nums.append(nums[i//2])
+
+        else:
+            nums.append(nums[i//2] + nums[(i+1)//2])
+
+    return max(nums)
+
+if __name__ == '__main__':
+
+    n = int(input())
+
+    result = getMaximumGenerated(n)
+
+    print(result)
