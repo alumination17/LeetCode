@@ -19,7 +19,7 @@ class Solution:
         #     result.append(temp_sum)
         # return result
 
-#   as the array is sorted in non-increasing order, each left number from nums[i] is less than or equal than nums[i], 
+#   as the array is sorted in non-decreasing order, each left number from nums[i] is less than or equal than nums[i], 
 #   so does a right number. Therefore, we can write that: 
 #   |num[i] - left_num| + |num[i] - num[i]| + |num[i] - right_num| ...
 #   leads to the same pattern: 
